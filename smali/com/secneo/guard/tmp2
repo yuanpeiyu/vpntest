@@ -1,0 +1,53 @@
+:cond_4
+{
+if (v5 != null) {
+	try {
+		byte[] md5 = readFile(checkFile); // v10 == md5
+		if (md5 != null) {
+			v14 = md5.length;
+			v15 = v5.length;
+			if (v14 == v15) {
+				for (int i = 0; i < v14; i++) {
+					v14 = md5[i];
+					v15 = v5[i];
+					if (v14 == v15) {
+						continue;
+					} else {
+						todo = true;
+						breadk;				
+					}			
+				}
+			} else {
+				todo = true;
+			}					
+		}
+		
+	} catch(Exception e) {
+			
+	}
+}
+:cond_2
+}
+
+
+:cond_3
+:goto_2
+return;
+
+:cond_2
+:goto_1
+if (todo) {
+	File f = new File("/data/data/" + ctx.getPackageName() + "/.cache/");
+	deleteDirectory(f);
+	try {
+		FileOutputStream chkOut = new FileOutputStream(checkFile);
+		chkOut.write(v5);
+		chkPut.close();
+	} catch(Exception e) {
+		return;	
+	}
+} else {
+	return;
+}
+
+

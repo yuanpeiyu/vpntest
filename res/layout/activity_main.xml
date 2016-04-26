@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/tv_ip" android:text="IP:" style="@style/tv_label" />
+    <TextView android:id="@id/tv_user" android:text="User:" android:layout_below="@id/tv_ip" style="@style/tv_label" />
+    <TextView android:id="@id/tv_passwd" android:text="Password:" android:layout_below="@id/tv_user" style="@style/tv_label" />
+    <TextView android:id="@id/tv_certName" android:text="Cert Name:" android:layout_below="@id/tv_passwd" style="@style/tv_label" />
+    <TextView android:id="@id/tv_certPasswd" android:text="Cert Psd:" android:layout_below="@id/tv_certName" style="@style/tv_label" />
+    <TextView android:id="@id/tv_sms" android:text="Sms Code:" android:layout_below="@id/tv_certPasswd" style="@style/tv_label" />
+    <TextView android:id="@id/tv_url" android:text="Url:" android:layout_below="@id/tv_sms" style="@style/tv_label" />
+    <TextView android:id="@id/tv_rnd_code" android:text="RndCode:" android:layout_below="@id/tv_url" style="@style/tv_label" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_ip" android:text="200.200.73.151" android:layout_toRightOf="@id/tv_ip" android:layout_alignBaseline="@id/tv_ip" android:inputType="textUri" style="@style/match_parent" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_user" android:text="lyx" android:layout_toRightOf="@id/tv_user" android:layout_alignBaseline="@id/tv_user" android:inputType="textNoSuggestions" style="@style/match_parent" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_passwd" android:layout_toRightOf="@id/tv_passwd" android:layout_alignBaseline="@id/tv_passwd" android:inputType="textPassword" style="@style/match_parent" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_certName" android:text="/sdcard/cert/lyx.p12" android:layout_toRightOf="@id/tv_certName" android:layout_alignBaseline="@id/tv_certName" android:inputType="textNoSuggestions" style="@style/match_parent" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_certPasswd" android:text="123" android:layout_toRightOf="@id/tv_certPasswd" android:layout_alignBaseline="@id/tv_certPasswd" android:inputType="textPassword" style="@style/match_parent" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_sms" android:layout_toRightOf="@id/tv_sms" android:layout_alignBaseline="@id/tv_sms" android:inputType="number" style="@style/match_parent" />
+    <com.example.yuanpeiyu.vpntest.RememberEditText android:id="@id/edt_url" android:layout_toRightOf="@id/tv_url" android:layout_alignBaseline="@id/tv_url" android:inputType="textUri" style="@style/match_parent" />
+    <ImageButton android:id="@id/imgbtn_rnd_code" android:background="#ffffffff" android:layout_width="80.0dip" android:layout_height="38.0dip" android:layout_alignTop="@id/tv_rnd_code" android:layout_alignParentRight="true" android:onClick="onClick" />
+    <EditText android:id="@id/edt_rnd_code" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/imgbtn_rnd_code" android:layout_toRightOf="@id/tv_rnd_code" android:layout_alignBaseline="@id/tv_rnd_code" android:inputType="textNoSuggestions" />
+    <Button android:id="@id/btn_logout" android:text="Logout" android:layout_below="@id/tv_rnd_code" android:layout_centerHorizontal="true" android:onClick="onClick" style="@style/tv_label" />
+    <Button android:id="@id/btn_login" android:text="Login" android:layout_toLeftOf="@id/btn_logout" android:layout_below="@id/tv_rnd_code" android:onClick="onClick" style="@style/tv_label" />
+    <Button android:id="@id/btn_cancel" android:text="Cancel" android:layout_below="@id/btn_logout" android:layout_centerHorizontal="true" android:onClick="onClick" style="@style/tv_label" />
+    <Button android:id="@id/btn_sms" android:text="send sms" android:layout_toRightOf="@id/btn_logout" android:layout_below="@id/tv_rnd_code" android:onClick="onClick" style="@style/tv_label" />
+    <Button android:id="@id/btn_reget_sms" android:text="reget sms" android:layout_below="@id/btn_sms" android:layout_alignLeft="@id/btn_sms" android:onClick="onClick" style="@style/tv_label" />
+    <Button android:id="@id/btn_test_http" android:text="T_Http" android:layout_alignBaseline="@id/btn_cancel" android:layout_alignLeft="@id/btn_login" android:layout_alignBottom="@id/btn_cancel" android:onClick="onClick" style="@style/tv_label" />
+    <WebView android:id="@id/webView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/btn_cancel" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/adLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

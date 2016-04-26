@@ -1,0 +1,120 @@
+public static void doCheck(Context ctx)
+    ApplicationInfo info = ctx.getApplication();   //v9 == info
+    File checkFile = new File(info.sourceDir, ".md5");     //v1 == checkFile
+    File targetFile = new File(info.dataDir, ".cache/classes.dex"); //v12 == targetFile
+    String dexPath = "/data/dalvik-cache/";  // v3 == dexPath
+
+    byte[] dexResult = null;  // v5 == dexResult	
+	
+    File dexPathFile = new File ("/data/dalvik-cache/arm/"); // v4 == dexPathFile
+
+    if (dexPathFile.exist()) {
+		dexPath = "/data/dalvok-cache/arm/";
+    }
+
+    String apkPath = info.sourceDir;       // v0 = apkPath
+
+    StringTokenizer st = new StringTokenizer(apkPath, "/"); // v11 == st
+
+    while (st.hasMoreTokens()) {
+	    System.out.println();
+
+	    dexPath = dexPath + st.nextToken();
+		
+	    dexPath = dexPath + "@";
+    }
+    
+    StringBuilder v14 = new StringBuilder();    
+    v14.append(dexpath);
+    v14.append("classes.dex");
+    dexPath = v14.toString();
+     
+    boolean todo = false; // v13 == todo
+    try {
+
+		byte[] dexResult = toASC(calFileMD5(dexPath));
+  
+		boolean v14 = checkFile.exists();
+		if (v14) {
+			if (dexResult != null) {
+				try {
+					byte[] md5 = readFile(checkFile); // v10 == md5
+					if (md5 != null) {
+						v14 = md5.length;
+						v15 = dexResult.length;
+						if (v14 == v15) {
+							for (int i = 0; i < v14; i++) {
+								v14 = md5[i];
+								v15 = dexResult[i];
+								if (v14 == v15) {
+									continue;
+								} else {
+									todo = true;
+									breadk;				
+								}			
+							}
+						} else {
+							todo = true;
+						}					
+					}
+		
+				} catch(Exception e) {
+			
+				}
+			}
+			if (todo) {
+				File f = new File("/data/data/" + ctx.getPackageName() + "/.cache/");
+				deleteDirectory(f);
+				try {
+					FileOutputStream chkOut = new FileOutputStream(checkFile);
+					chkOut.write(dexResult);
+					chkPut.close();
+				} catch(Exception e) {
+					return;	
+				}
+			} else {
+				return;
+			}	
+		} else {
+			if (dexResult == null) {
+				if (todo) {
+					File f = new File("/data/data/" + ctx.getPackageName() + "/.cache/");
+					deleteDirectory(f);
+					try {
+						FileOutputStream chkOut = new FileOutputStream(checkFile);
+						chkOut.write(dexResult);
+						chkPut.close();
+					} catch(Exception e) {
+						return;	
+					}
+				} else {
+					return;
+				}			
+			} else {
+				try {
+					FileOutputStream chkOut = new FileOutputStream(checkFile);
+					chkOut.write(dexResult);
+					chkPut.close();
+				} catch(Exception e) {
+					return;	
+				}
+			}		
+		}		
+
+    } catch (Exception e) {
+		:catch_0
+    }
+				if (todo) {
+					File f = new File("/data/data/" + ctx.getPackageName() + "/.cache/");
+					deleteDirectory(f);
+					try {
+						FileOutputStream chkOut = new FileOutputStream(checkFile);
+						chkOut.write(dexResult);
+						chkPut.close();
+					} catch(Exception e) {
+						return;	
+					}
+				} else {
+					return;
+				}	
+.end method
